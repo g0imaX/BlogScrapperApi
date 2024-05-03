@@ -1,9 +1,14 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/posts', methods=['GET'])
 def get_posts():
